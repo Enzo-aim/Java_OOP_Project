@@ -1,11 +1,21 @@
 package ru.netology;
-    // Класс
+// Класс
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor   // Аннотация  которая описывает конструктор без параметров
+@Getter              // Аннотация  которая описывает Get-ры для всех полей
+
+
+
 public class Radio {
     private int countStation = 10;
     private int minStation = 0;
     private int maxStation = 9;
     private int currentStation = minStation;
-
+                                                        // Инициализаторы полей
     private int maxVolume = 100;
     private int minVolume = 0;
     private int volume = 0;
@@ -15,26 +25,10 @@ public class Radio {
         this.countStation = maxStation;
     }
 
-    // Конструктор
-    public Radio() {
-
-    }
 
 
-    //  Метод возвращает текущую радио станцию
-    public int getCurrentStation() {
-        return currentStation;
-    }
-
-    public int getCountStation(){
-        return countStation;
-    }
-
-    public int getVolume() {
-        return volume;
 
 
-    }
 
     // Метод устанавливающий радиостанцию
     public void setCurrentStation(int newCurrentStation) {

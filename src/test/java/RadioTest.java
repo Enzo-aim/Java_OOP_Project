@@ -149,7 +149,7 @@ public class RadioTest {
 
 
     }
-    // Проверка конструктора с пораметрами
+    // Проверка конструктора с параметрами
     @Test
     public void checkingСonstructorWithParameters() {
         Radio radio = new Radio(10);
