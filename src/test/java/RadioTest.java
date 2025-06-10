@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ru.netology.Radio;
 
+
 public class RadioTest {
     //Проверка уменьшение громкости при значении текущей громкости больше (0)
     @Test
@@ -148,4 +149,12 @@ public class RadioTest {
 
 
     }
+    // Проверка конструктора с параметрами
+    @Test
+    public void checkingСonstructorWithParameters() {
+        Radio radio = new Radio(10);
+        Assertions.assertEquals(9, radio.getCountStation());
+    }
+
+
 }
