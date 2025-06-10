@@ -1,12 +1,33 @@
 package ru.netology;
-
+    // Класс
 public class Radio {
-    private int currentStation;  //Текущая радио станция
-    private int volume;          // Текущая громкость
+    private int countStation = 10;
+    private int minStation = 0;
+    private int maxStation = 9;
+    private int currentStation = minStation;
+
+    private int maxVolume = 100;
+    private int minVolume = 0;
+    private int volume = 0;
+
+    public Radio(int countStation) {
+        this.maxStation = countStation - 1;
+        this.countStation = maxStation;
+    }
+
+    // Конструктор
+    public Radio() {
+
+    }
+
 
     //  Метод возвращает текущую радио станцию
     public int getCurrentStation() {
         return currentStation;
+    }
+
+    public int getCountStation(){
+        return countStation;
     }
 
     public int getVolume() {
@@ -17,10 +38,10 @@ public class Radio {
 
     // Метод устанавливающий радиостанцию
     public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation > 9) {
+        if (newCurrentStation > maxStation) {
             return;
         }
-        if (newCurrentStation < 0) {
+        if (newCurrentStation < minStation) {
             return;
         }
         currentStation = newCurrentStation;
@@ -30,8 +51,8 @@ public class Radio {
     public void next() {
 
         int target = currentStation + 1;
-        if (target > 9) {
-            currentStation = 0;
+        if (target > maxStation) {
+            currentStation = minStation;
         } else {
             currentStation = target;
 
@@ -42,8 +63,8 @@ public class Radio {
     // Переключение на предыдущую радиостанцию (-)
     public void prev() {
         int target = currentStation - 1;
-        if (target < 0) {
-            currentStation = 9;
+        if (target < minStation) {
+            currentStation = maxStation;
         } else {
             currentStation = target;
 
@@ -57,10 +78,10 @@ public class Radio {
 
     // Метод прямой установки звука
     public void setVolume(int newVolume) {
-        if (newVolume < 0) {
+        if (newVolume < minVolume) {
             return;
         }
-        if (newVolume > 100) {
+        if (newVolume > maxVolume) {
             return;
         }
         volume = newVolume;
@@ -69,7 +90,7 @@ public class Radio {
 
     // Увеличения (+) громкости (101) (0)
     public void increaseVolume() {
-        if (volume < 100) {
+        if (volume < maxVolume) {
             volume++;
 
         }
@@ -78,7 +99,7 @@ public class Radio {
 
     // Уменьшение (-) громкости (0) (-1)
     public void decreaseVolume() {
-        if (volume > 0) {
+        if (volume > minVolume) {
             volume--;
         }
     }
